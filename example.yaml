@@ -1,0 +1,49 @@
+name: General
+currency: EUR
+rebalance_interval: monthly
+expenses:
+  - name: Bank Account
+    category: Essential
+    payment:
+      amount: 25
+      currency: EUR
+      interval: 1
+      interval_unit: year
+      next_payment_date: 01.01.2024
+
+  - name: Barbier
+    category: Essential
+    payment:
+      amount: 30
+      currency: EUR
+      interval: 6
+      interval_unit: week
+      next_payment_date: 12.10.2023
+
+  - name: Personal Domain
+    category: Useful
+    payment:
+      amount: 12
+      currency: EUR
+      interval: 1
+      interval_unit: year
+      next_payment_date: 12.06.2024
+
+  - name: Public Transport
+    category: Useful
+    payment:
+      amount: 49
+      currency: EUR
+      interval: 1
+      interval_unit: month
+      next_payment_date: 01.10.2023
+
+  - name: Massage
+    category: Luxury
+    payment:
+      amount: 42
+      currency: EUR
+      interval: 10
+      interval_unit: week
+      next_payment_date: 15.11.2023
+  
