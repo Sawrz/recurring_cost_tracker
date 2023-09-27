@@ -32,3 +32,21 @@ YAML_CONTENT = {
         },
     ],
 }
+
+
+def test_from_yaml(monkeypatch, tmp_path):
+    def mock_expense():
+        return Expense("Name", "Category", 13.37, "EUR", 2, "week", date(1970, 1, 1))
+
+    monkeypatch.setattr(yaml, "load", lambda *args, **kwargs: deepcopy(YAML_CONTENT))
+    monkeypatch.setattr(Expense, "from_dict", lambda *args, **kwargs: mock_expense)
+
+    file_path = tmp_path / "test_file.yaml"
+    file_path.write_text("")
+
+    account = ExpenseAccount.from_yaml(file_path)
+
+    assert account.name == YAML_CONTENT["name"]
+    assert account.currency == YAML_CONTENT["currency"]
+    assert account.rebalance_interval == YAML_CONTENT["rebalance_interval"]
+    assert len(account.expenses) == 2
